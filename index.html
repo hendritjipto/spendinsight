@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Financial Diary</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            #loading-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 400px;
+            }
+            
+            .spinner-border {
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            #content-container {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <h1 class="text-center">Financial Diary</h1>
+
+            <!-- Loading spinner container -->
+            <div id="loading-container">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Loading your financial data...</p>
+            </div>
+            
+            <!-- Content container (hidden initially) -->
+            <div id="content-container">
+                <div class="d-flex justify-content-center">
+                    <canvas
+                        id="myDonutChart"
+                        style="max-width: 400px; max-height: 400px"
+                    ></canvas>
+                </div>
+                <div class="accordion mt-5" id="accordionExample">
+                    <!-- Accordion items will be generated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const bankAccountNumber = urlParams.get("bankAccountNumber");
+            let APIURL; 
+            if(!bankAccountNumber) {
+                APIURL = '/api/insight';
+            }
+            else {
+                APIURL = `/api/insight?bankAccountNumber=${encodeURIComponent(bankAccountNumber)}`;
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Fetch data from API
+                fetch(APIURL)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // We'll work with the first item in the array
+                        const financialData = Array.isArray(data) ? data[0] : data;
+                        const spendingInsights = financialData.spendingInsights;
+                        const totalSpending = financialData.totalSpending;
+                        
+                        // Hide loading spinner and show content
+                        document.getElementById('loading-container').style.display = 'none';
+                        document.getElementById('content-container').style.display = 'block';
+                        
+                        // Generate chart data
+                        renderChart(spendingInsights, totalSpending);
+                        
+                        // Generate accordion items
+                        renderAccordion(spendingInsights);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        // Hide spinner and show error message
+                        document.getElementById('loading-container').innerHTML = `
+                            <div class="alert alert-danger">
+                                <h4>Failed to load data</h4>
+                                <p>Please check your connection and try again later.</p>
+                            </div>
+                        `;
+                    });
+            });
+            
+            function renderChart(spendingInsights, totalSpending) {
+                // Extract data for chart
+                const labels = spendingInsights.map(item => item.category);
+                const amounts = spendingInsights.map(item => item.totalAmount);
+                const percentages = spendingInsights.map(item => item.percentage);
+                
+                // Generate random colors (or you could define a fixed set)
+                const colors = spendingInsights.map(() => 
+                    `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+                );
+                
+                // Plugin to display total in center
+                const centerTextPlugin = {
+                    id: 'centerText',
+                    beforeDraw: function(chart) {
+                        const width = chart.width;
+                        const height = chart.height;
+                        const ctx = chart.ctx;
+                        
+                        ctx.restore();
+                        ctx.textBaseline = 'middle';
+                        ctx.textAlign = 'center';
+                        
+                        // "Total" label
+                        const labelFontSize = (height / 300).toFixed(2) * 12;
+                        ctx.font = `${labelFontSize}px 'Open Sans'`;
+                        ctx.fillStyle = '#666';
+                        ctx.fillText('Total Spending', width / 2, height / 1.6 - 15);
+                        
+                        // Total amount text
+                        const fontSize = (height / 300).toFixed(2) * 16;
+                        ctx.font = `bold ${fontSize}px 'Open Sans'`;
+                        ctx.fillStyle = '#333';
+                        
+                        const text = '$' + totalSpending.toFixed(2);
+                        ctx.fillText(text, width / 2, height / 1.6 + 10);
+                        
+                        ctx.save();
+                    }
+                };
+                
+                var ctx = document.getElementById("myDonutChart").getContext("2d");
+                var myDonutChart = new Chart(ctx, {
+                    type: "doughnut",
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: "Spending by Category",
+                                data: amounts,
+                                backgroundColor: colors,
+                                hoverOffset: 4,
+                            },
+                        ],
+                    },
+                    options: {
+                        cutout: '70%', // Increase the hole size to fit text
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: "top",
+                                labels: {
+                                    font: {
+                                        family: "'Open Sans', sans-serif"
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: "Your Expenses",
+                                font: {
+                                    family: "'Open Sans', sans-serif",
+                                    size: 16,
+                                    weight: 'bold'
+                                }
+                            },
+                            tooltip: {
+                                titleFont: {
+                                    family: "'Open Sans', sans-serif"
+                                },
+                                bodyFont: {
+                                    family: "'Open Sans', sans-serif"
+                                },
+                                callbacks: {
+                                    label: function(context) {
+                                        const index = context.dataIndex;
+                                        return `${labels[index]}: $${amounts[index]} (${percentages[index]}%)`;
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    plugins: [centerTextPlugin]
+                });
+            }
+            
+            function renderAccordion(spendingInsights) {
+                const accordionContainer = document.getElementById('accordionExample');
+                accordionContainer.innerHTML = ''; // Clear any existing content
+                
+                // Create emoji mapping
+                const emojiMap = {
+                    "Groceries": "🛒",
+                    "Rent": "🏠",
+                    "Utilities": "💡",
+                    "Entertainment": "🎬",
+                    "Dining": "🍽️",
+                    "Transportation": "🚗",
+                    "Shopping": "🛍️",
+                    "Health": "⚕️",
+                    "Education": "📚"
+                };
+                
+                // Generate accordion items for each category
+                spendingInsights.forEach((category, index) => {
+                    const emoji = emojiMap[category.category] || "💰"; // Default emoji if not found
+                    const headingId = `heading${index}`;
+                    const collapseId = `collapse${index}`;
+                    
+                    // Create transactions table HTML
+                    let transactionsHtml = `
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    category.transactions.forEach(transaction => {
+                        // Format the date
+                        const date = new Date(transaction.date);
+                        const formattedDate = date.toLocaleDateString();
+                        
+                        transactionsHtml += `
+                            <tr>
+                                <td>${transaction.description}</td>
+                                <td>${formattedDate}</td>
+                                <td class="text-end">$${transaction.amount.toFixed(2)}</td>
+                            </tr>
+                        `;
+                    });
+                    
+                    transactionsHtml += `
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2">Total</th>
+                                    <th class="text-end">$${category.totalAmount.toFixed(2)} (${category.percentage}%)</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    `;
+                    
+                    // Create accordion item
+                    const accordionItem = document.createElement('div');
+                    accordionItem.className = 'accordion-item';
+                    accordionItem.innerHTML = `
+                        <h2 class="accordion-header" id="${headingId}">
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#${collapseId}"
+                                aria-expanded="false"
+                                aria-controls="${collapseId}"
+                            >
+                                ${emoji} ${category.category} - $${category.totalAmount.toFixed(2)} (${category.percentage}%)
+                            </button>
+                        </h2>
+                        <div
+                            id="${collapseId}"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="${headingId}"
+                        >
+                            <div class="accordion-body">
+                                ${transactionsHtml}
+                            </div>
+                        </div>
+                    `;
+                    
+                    accordionContainer.appendChild(accordionItem);
+                });
+            }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

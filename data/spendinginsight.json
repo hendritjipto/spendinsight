@@ -1,0 +1,80 @@
+{
+    "bankAccountNumber": "1234567890",
+    "timestamp": "2025-02-01T10:00:00Z",
+    "totalSpending" : 2000,
+    "spendingInsights": [
+      {
+        "category": "Groceries",
+        "totalAmount": 500.00,
+        "percentage": 25.0,
+        "transactions": [
+          {
+            "description": "Supermarket",
+            "amount": 200.00,
+            "date": "2025-01-15"
+          },
+          {
+            "description": "Farmer's Market",
+            "amount": 150.00,
+            "date": "2025-01-20"
+          },
+          {
+            "description": "Grocery Store",
+            "amount": 150.00,
+            "date": "2025-01-25"
+          }
+        ]
+      },
+      {
+        "category": "Rent",
+        "totalAmount": 1200.00,
+        "percentage": 60.0,
+        "transactions": [
+          {
+            "description": "Monthly Rent",
+            "amount": 1200.00,
+            "date": "2025-01-01"
+          }
+        ]
+      },
+      {
+        "category": "Utilities",
+        "totalAmount": 200.00,
+        "percentage": 10.0,
+        "transactions": [
+          {
+            "description": "Electricity Bill",
+            "amount": 100.00,
+            "date": "2025-01-10"
+          },
+          {
+            "description": "Water Bill",
+            "amount": 50.00,
+            "date": "2025-01-15"
+          },
+          {
+            "description": "Internet Bill",
+            "amount": 50.00,
+            "date": "2025-01-20"
+          }
+        ]
+      },
+      {
+        "category": "Entertainment",
+        "totalAmount": 100.00,
+        "percentage": 5.0,
+        "transactions": [
+          {
+            "description": "Movie Tickets",
+            "amount": 50.00,
+            "date": "2025-01-05"
+          },
+          {
+            "description": "Concert Tickets",
+            "amount": 50.00,
+            "date": "2025-01-25"
+          }
+        ]
+      }
+    ]
+  }
