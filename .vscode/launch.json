@@ -1,16 +1,14 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
-            "name": "http://localhost:880",
+            "type": "node",
             "request": "launch",
-            "url": "http://localhost:880"
-        },
-        {
-            "type": "chrome",
-            "name": "http://localhost:8080",
-            "request": "launch",
-            "url": "http://localhost:8080"
+            "name": "Launch Current File",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${file}",
+            "runtimeExecutable": "/opt/homebrew/bin/node",  // Specify the full path to your Node.js binary
+            "console": "integratedTerminal"
         }
     ]
 }

@@ -1,0 +1,102 @@
+[{
+    "Groceries": {
+      "icon": "🛒",
+      "companies": [
+        "IndoMrt",
+        "AlphaMart",
+        "HyperMrt",
+        "SuperIndo",
+        "Carrfour Indo",
+        "TransMrt"
+      ]
+    },
+    "Rent": {
+      "icon": "🏠",
+      "companies": [
+        "Agung PodoLand",
+        "Citra Group",
+        "SummareKon",
+        "Pakuwon Dev",
+        "Lipo K"
+      ]
+    },
+    "Utilities": {
+      "icon": "💡",
+      "companies": [
+        "PLX (Perusahaan Listrik Nusantara)",
+        "PDAW (Perusahaan Daerah Air Warga)",
+        "ICONX (PLX Internet)",
+        "Telkom Nusantara",
+        "IndoHome",
+        "FirstNet"
+      ]
+    },
+    "Entertainment": {
+      "icon": "🎬",
+      "companies": [
+        "CineMax XXI",
+        "CGX Indo",
+        "Taman Nusantara",
+        "DufArena",
+        "Bali Safari Land",
+        "Ancal"
+      ]
+    },
+    "Dining": {
+      "icon": "🍽️",
+      "companies": [
+        "McD Nusantara",
+        "KLC Indo",
+        "HokaBen",
+        "SateKhas Senayan",
+        "Bebek Karyo",
+        "Warung Tagal"
+      ]
+    },
+    "Transportation": {
+      "icon": "🚗",
+      "companies": [
+        "GoDrive",
+        "GrabX",
+        "Blue Taxi",
+        "DAMRU",
+        "TransNusa",
+        "Angkasa Wira"
+      ]
+    },
+    "Shopping": {
+      "icon": "🛍️",
+      "companies": [
+        "TokoPedia",
+        "Shopi Indo",
+        "Lazadoo",
+        "BliBliX",
+        "BukaToko",
+        "Zalorra Indo"
+      ]
+    },
+    "Health": {
+      "icon": "⚕️",
+      "companies": [
+        "Silom Hospitals",
+        "Mitra Kesehatan",
+        "Maya Medika",
+        "BPJS Sehat",
+        "Kima Farma",
+        "Apotek K25"
+      ]
+    },
+    "Education": {
+      "icon": "📚",
+      "companies": [
+        "Gramedio",
+        "Zen Edu",
+        "RuangBelajar",
+        "Univ Indo",
+        "Institut Teknologi Nusantara",
+        "Gajah Mada Univ",
+        "BPK Penuai"
+      ]
+    }
+  }
+]

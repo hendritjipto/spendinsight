@@ -17,11 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 
 (async () => {
     const dbClient = await connectDB();
-    app.locals.db = dbClient.db("Bank"); // ✅ Store persistent DB connection
+    app.locals.db = dbClient; // ✅ Store persistent DB connection
 })();
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/browser', (req, res) => {
+    res.sendFile(__dirname + '/html/browsercal.html');
 });
 
 // Register category routes with /api/users prefix

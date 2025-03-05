@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Financial Diary</title>
+		<title>Financial Diary CCC</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -31,6 +31,10 @@
 			.spinner-border {
 				width: 3rem;
 				height: 3rem;
+			}
+
+			.accordion-button {
+				padding: 0.8rem 1rem; /* Adjust top-bottom and left-right padding */
 			}
 
 			#content-container {
@@ -103,7 +107,7 @@
 						renderChart(spendingInsights, totalSpending);
 
 						// Generate accordion items
-						renderAccordion(spendingInsights);
+						renderAccordion(spendingInsights, totalSpending);
 					})
 					.catch((error) => {
 						console.error("Error fetching data:", error);
@@ -211,7 +215,11 @@
 								callbacks: {
 									label: function (context) {
 										const index = context.dataIndex;
-										return `${labels[index]}: $${amounts[index]} (${percentages[index]}%)`;
+										const percentage = (
+											(amounts[index] / totalSpending) *
+											100
+										).toFixed(1);
+										return `${labels[index]}: $${amounts[index]} (${percentage}%)`;
 									},
 								},
 							},
@@ -221,7 +229,7 @@
 				});
 			}
 
-			function renderAccordion(spendingInsights) {
+			function renderAccordion(spendingInsights, totalSpending) {
 				const accordionContainer = document.getElementById("accordionExample");
 				accordionContainer.innerHTML = ""; // Clear any existing content
 
@@ -243,6 +251,10 @@
 					const emoji = emojiMap[category.category] || "💰"; // Default emoji if not found
 					const headingId = `heading${index}`;
 					const collapseId = `collapse${index}`;
+					const percentage = (
+						(category.totalAmount / totalSpending) *
+						100
+					).toFixed(1);
 
 					// Create transactions table HTML
 					let transactionsHtml = `
@@ -280,7 +292,7 @@
                                     <th colspan="2">Total</th>
                                     <th class="text-end">IDR ${formatCurrency(
 																			category.totalAmount.toFixed(2)
-																		)} (${category.percentage}%)</th>
+																		)} (${percentage}%)</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -299,11 +311,19 @@
                                 aria-expanded="false"
                                 aria-controls="${collapseId}"
                             >
-                                ${emoji} ${
-						category.category
-					} - IDR ${formatCurrency(category.totalAmount.toFixed(2))} (${
-						category.percentage
-					}%)
+                                <div class="d-flex align-items-center rounded">
+                                <div class="me-3" style="font-size: 2rem;">
+                                    ${emoji}
+                                </div>
+                                <div>
+                                    <div class="fw-bold">${
+																			category.category
+																		}</div>
+                                    <div>IDR ${formatCurrency(
+																			category.totalAmount.toFixed(2)
+																		)} (${percentage}%)</div>
+                                </div>
+                            </div>                               
                             </button>
                         </h2>
                         <div
@@ -324,7 +344,15 @@
 			document
 				.getElementById("toggleAccordionBtn")
 				.addEventListener("click", function () {
-				
+					const accordionItems = document.querySelectorAll(
+						".accordion-collapse"
+					);
+
+					console.log(this.textContent.trim());
+					//const allCollapsed = Array.from(accordionItems).every(
+					//	(item) => !item.classList.contains("show")
+					//);
+
 					if (this.textContent.trim() == "Expand All") {
 						document.querySelectorAll(".accordion-collapse").forEach((item) => {
 							let bsCollapse = new bootstrap.Collapse(item, { toggle: false });
