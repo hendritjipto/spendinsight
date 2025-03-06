@@ -1,32 +1,37 @@
-export const getUsers = (req, res) => {
-    console.log("Received body:", req.body);
-    const users = [
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Alice Johnson" },
-        { id: 3, name: "Bob Smith" },
-        { id: 4, name: "Charlie Brown" }
-    ];
-    res.json(users);
-};
-
-export const createUser = (req, res) => {
+export const getUsersSpend = async (req, res) => {
     try {
-        console.log("Received body:", req.body); // Debugging line
-        const { name } = req.body;
+        const db = req.app.locals.db; // ✅ Reuse the persistent DB connection
 
-        if (!name) {
-            return res.status(400).json({ message: "Name is required" });
-        }
+        const pipeline = [
+            {
+              $group: {
+                _id: "$bankAccountNumber"
+              }
+            },
+            {
+              $lookup: {
+                from: "account",
+                localField: "_id",
+                foreignField: "bankAccountNumber",
+                as: "accountDetails"
+              }
+            },
+            {
+              $unwind: "$accountDetails"
+            },
+            {
+              $project: {
+                _id: 0,
+                bankAccountNumber: "$_id",
+                accountName: "$accountDetails.name"
+              }
+            }
+          ]
 
-        const newUser = {
-            id: Math.floor(Math.random() * 1000), // Generate a random ID
-            name
-        };
-
-        res.status(201).json({ message: `User ${name} created.`, user: newUser });
+        const users = await db.collection("spendinginsight").aggregate(pipeline).toArray();
+        res.json(users);
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        res.status(500).json({ message: error });
     }
-    catch (error) {
-        console.log(error);
-    }
-
 };

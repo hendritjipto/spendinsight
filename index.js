@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import spendinsightRoutes from "./routes/spendinsightRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import transcationRoutes from "./routes/transactionRoutes.js";
 import connectDB  from "./db.js";
 
 dotenv.config();
@@ -28,9 +29,14 @@ app.get('/browser', (req, res) => {
     res.sendFile(__dirname + '/html/browsercal.html');
 });
 
+app.get('/transaction', (req, res) => {
+    res.sendFile(__dirname + '/html/transaction.html');
+});
+
 // Register category routes with /api/users prefix
 app.use("/api/users", userRoutes);
 app.use("/api/insight", spendinsightRoutes);
+app.use("/api/transaction", transcationRoutes);
 
 app.post('/path', (req, res) => {
     const data = req.body;
