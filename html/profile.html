@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>User Profile</title>
+
+		<!-- Styles & Libraries -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+		<style>
+			body {
+				font-family: "Open Sans", sans-serif;
+			}
+			#loading-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 400px;
+			}
+			.spinner-border {
+				width: 3rem;
+				height: 3rem;
+			}
+			#user-form {
+				display: none;
+			}
+			#map {
+				height: 400px;
+				margin-top: 20px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container mt-5">
+			<h2 class="mb-4 text-center">📝 User Details</h2>
+
+			<!-- Loading Spinner -->
+			<div id="loading-container">
+				<div class="spinner-border text-primary" role="status"></div>
+				<p class="mt-2">Loading data...</p>
+			</div>
+
+			<!-- User Form -->
+			<div id="user-form">
+				<form>
+					<div class="mb-3">
+						<label for="user-name" class="form-label">Name</label>
+						<input
+							type="text"
+							class="form-control"
+							id="user-name"
+							placeholder="Enter name"
+                            readonly
+						/>
+					</div>
+					<div class="mb-3">
+						<label for="bank-account" class="form-label"
+							>Bank Account No.</label
+						>
+						<input
+							type="text"
+							class="form-control"
+							id="bank-account"
+							placeholder="Enter bank account number"
+                            readonly
+						/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">GPS Location</label>
+						<div id="map"></div>
+					</div>
+				</form>
+				<button id="btnBack" class="btn btn-primary mb-2 w-100">Back</button>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				fetchUserData();
+			});
+			const urlParams = new URLSearchParams(window.location.search);
+			const bankAccountNumber = urlParams.get("bankAccountNumber");
+			const back = document.getElementById("btnBack");
+            const origin = urlParams.get("origin");
+
+			function fetchUserData() {
+				fetch(
+					`/api/users/profile?bankAccountNumber=${encodeURIComponent(
+						bankAccountNumber
+					)}`
+				)
+					.then((response) => response.json())
+					.then((data) => {
+						// Populate form fields
+						document.getElementById("user-name").value = data[0].name;
+						document.getElementById("bank-account").value =
+							data[0].bankAccountNumber;
+
+						// Show form and map
+						document.getElementById("loading-container").style.display = "none";
+						document.getElementById("user-form").style.display = "block";
+						document.getElementById("map").style.display = "block";
+
+						// Show map with user's GPS location
+						//loadMap(data.location.latitude, data.location.longitude);
+						loadMap(
+							data[0].location.coordinates[1],
+							data[0].location.coordinates[0]
+						);
+					})
+					.catch((error) => {
+						console.error("Error fetching data:", error);
+						// Hide spinner and show error message
+						document.getElementById("loading-container").innerHTML = `
+                            <div class="alert alert-danger">
+                                <h4>Failed to load data</h4>
+                                <p>Please check your connection and try again later.</p>
+                            </div>
+                        `;
+					});
+			}
+
+			function loadMap(lat, lon) {
+				var map = L.map("map").setView([lat, lon], 15);
+
+				// Carto Light Tile Layer
+				L.tileLayer(
+					"https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+					{
+						attribution: "&copy; OpenStreetMap & CartoDB",
+					}
+				).addTo(map);
+
+				// Add a marker for the user's location
+				L.marker([lat, lon])
+					.addTo(map)
+					.bindPopup("<b>Your Location</b><br>GPS: " + lat + ", " + lon)
+					.openPopup();
+			}
+
+			back.addEventListener("click", function () {
+				//I want to get the url selected bank as the parameter too
+                let data = origin.split(";");
+				window.location.href = "/" + data[0] + "?bankAccountNumber=" + bankAccountNumber + "&month=" + data[1];
+			});
+		</script>
+	</body>
+</html>

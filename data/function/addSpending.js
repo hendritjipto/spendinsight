@@ -65,12 +65,17 @@ export default async function addSpending(transaction, client, dbName) {
                         },
                         { upsert: true, session } // Ensures atomic insert
                     );
+
+                    await collection.createIndex(
+                        { bankAccountNumber: 1, month: 1, "spendingInsights.category": 1 },
+                        { unique: true }
+                    );
                 }
 
                 //console.log(`Transaction added successfully for ${transaction.category}`);
 
                 // Step 2: Get the updated document to recalculate percentages
-                const updatedDoc = await collection.findOne({ bankAccountNumber: transaction.bankAccountNumber }, { session });
+                const updatedDoc = await collection.findOne({ bankAccountNumber: transaction.bankAccountNumber,"month": firstDayOfMonth }, { session });
 
                 if (!updatedDoc || !updatedDoc.spendingInsights) {
                     throw new Error("Document not found after update, aborting transaction.");
@@ -87,7 +92,8 @@ export default async function addSpending(transaction, client, dbName) {
                         updateOne: {
                             filter: {
                                 bankAccountNumber: transaction.bankAccountNumber,
-                                "spendingInsights.category": insight.category
+                                "spendingInsights.category": insight.category,
+                                "month": firstDayOfMonth
                             },
                             update: {
                                 $set: { "spendingInsights.$.percentage": roundedPercentage }

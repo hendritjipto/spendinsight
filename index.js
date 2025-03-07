@@ -33,6 +33,22 @@ app.get('/transaction', (req, res) => {
     res.sendFile(__dirname + '/html/transaction.html');
 });
 
+app.get('/profile', (req, res) => {
+    res.sendFile(__dirname + '/html/profile.html');
+});
+
+app.get('/browsercal.js', (req, res) => {
+    res.sendFile(__dirname + '/js/browsercal.js');
+});
+
+app.get('/transaction.js', (req, res) => {
+    res.sendFile(__dirname + '/js/transaction.js');
+});
+
+app.get('/index.js', (req, res) => {
+    res.sendFile(__dirname + '/js/index.js');
+});
+
 // Register category routes with /api/users prefix
 app.use("/api/users", userRoutes);
 app.use("/api/insight", spendinsightRoutes);

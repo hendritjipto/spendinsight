@@ -20,8 +20,12 @@ export const getInsight = async (req, res) => {
                 monthDate.getMonth(),
                 1, 0, 0, 0
             ));
-            const transactions = await db.collection("spendinginsight").findOne({ "bankAccountNumber": bankAccountNumber, "month": firstDayOfMonth });
-            if (transactions) {
+            const transactions = await db.collection("spendinginsight").find({ "bankAccountNumber": bankAccountNumber, "month": firstDayOfMonth }).toArray();
+            
+            // let explain = await db.collection("spendinginsight").find({ "bankAccountNumber": bankAccountNumber, "month": firstDayOfMonth }).explain("allPlansExecution")
+            // console.log(JSON.stringify(explain, null, 2));
+         
+            if (transactions[0]) {
                 res.json(transactions);
             } else {
                 res.status(404).json({ message: "transactions not found" });
@@ -40,7 +44,7 @@ export const getInsight = async (req, res) => {
             res.json(transactions);
         }
     } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error fetching spending insight:", error);
         res.status(500).json({ message: error });
     }
 };
