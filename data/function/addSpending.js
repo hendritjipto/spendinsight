@@ -65,11 +65,6 @@ export default async function addSpending(transaction, client, dbName) {
                         },
                         { upsert: true, session } // Ensures atomic insert
                     );
-
-                    await collection.createIndex(
-                        { bankAccountNumber: 1, month: 1, "spendingInsights.category": 1 },
-                        { unique: true }
-                    );
                 }
 
                 //console.log(`Transaction added successfully for ${transaction.category}`);

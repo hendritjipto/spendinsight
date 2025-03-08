@@ -12,6 +12,12 @@ const client = new MongoClient(connection);
 await client.connect();
 console.log("Connected to MongoDB!");
 
+const database = client.db(dbName);
+const collection = database.collection('spendinginsight');
+await collection.createIndex(
+    { bankAccountNumber: 1, month: 1, "spendingInsights.category": 1 },
+    { unique: true }
+);
 // Generate 1000 random transactions
 const transactions = await getRandomTransaction(1000);
 
