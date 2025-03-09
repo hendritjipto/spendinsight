@@ -20,7 +20,7 @@ const selectAccount = document.getElementById("selectBankAccountNumber");
 const selectMonth = document.getElementById("selectMonth");
 const selectedBank = urlParams.get("bankAccountNumber");
 const goToProfile = document.getElementById("profile");
-const origin = "browser;" + selectedMonth;
+const origin = "transaction;" + selectedMonth;
 goToProfile.addEventListener("click", function () {
     //I want to get the url selected bank as the parameter too
 
