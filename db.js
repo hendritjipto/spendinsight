@@ -9,8 +9,8 @@ let client;
 export default async function connectDB() {
     if (!client) {
         client = new MongoClient(connection);
-        const dbClient = await client.connect();
-        client = dbClient.db(dbName);
+        await client.connect();
+        client = client.db(dbName);
         console.log("✅ MongoDB Connected!");
         return client;
     }
