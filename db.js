@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const connection = process.env.ATLASSEARCHURI + "?retryWrites=true&w=majority";
-const dbName = "Bank";
+const dbName = process.env.DBNAME;
 let client;
 
 export default async function connectDB() {
