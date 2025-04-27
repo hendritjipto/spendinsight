@@ -12,11 +12,7 @@ export const getTransaction = async (req, res) => {
             month = req.query.month.trim().toLowerCase();
         }
 
-        if (!bankAccountNumber) {
-            const transactions = await db.collection("transaction").find().toArray();
-            res.json(transactions);
-        }
-        else if (bankAccountNumber && month) {
+        if (bankAccountNumber && month) {
             // First create a proper Date object for the first day of the month
             const monthDate = new Date(month);
             // Create a proper first day of the month at midnight UTC
@@ -51,7 +47,7 @@ export const getTransaction = async (req, res) => {
                 res.status(404).json({ message: "User not found" });
             }
         }
-        else {
+        else if(bankAccountNumber) {
             const transactions = await db.collection("transaction").find({ "bankAccountNumber": bankAccountNumber }).toArray();
             const output = groupTrans(transactions);
 
@@ -60,7 +56,15 @@ export const getTransaction = async (req, res) => {
             } else {
                 res.status(404).json({ message: "User not found" });
             }
+        }       
+        else {
+            var transactions = await db.collection("transaction").findOne();
+            bankAccountNumber = transactions.bankAccountNumber;
+            transactions = await db.collection("transaction").find({ "bankAccountNumber": bankAccountNumber }).toArray();
+            const output = groupTrans(transactions);
+            res.json(output);
         }
+
     } catch (error) {
         console.error("Error fetching transaction:", error);
         res.status(500).json({ message: error });

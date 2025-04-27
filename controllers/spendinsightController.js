@@ -40,7 +40,7 @@ export const getInsight = async (req, res) => {
             }
         }
         else {
-            const transactions = await db.collection("spendinginsight").find().toArray();
+            const transactions = await db.collection("spendinginsight").findOne();
             res.json(transactions);
         }
     } catch (error) {
