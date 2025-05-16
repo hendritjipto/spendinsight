@@ -28,6 +28,7 @@ try {
     for (const transaction of transactions) {
         await addTransaction(transaction, client, dbName).catch(console.error);
         //await addTransactionAndUpdatePercentages(transaction, client, dbName).catch(console.error);
+    
     }
 }
 finally {

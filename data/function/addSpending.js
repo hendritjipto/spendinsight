@@ -40,7 +40,7 @@ export default async function addSpending(transaction, client, dbName) {
                 };
 
                 const result = await collection.updateOne(filter, update, { session });
-
+                
                 if (result.matchedCount === 0) {
                     //console.log(`No matching category found, inserting new category for ${transaction.category}`);
 
