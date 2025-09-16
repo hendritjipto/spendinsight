@@ -1,3 +1,15 @@
+import tracer from 'dd-trace';
+tracer.init({
+    debug: true,
+    logInjection: true,
+    service: process.env.DD_SERVICE || 'spendinsight-app',
+    env: process.env.DD_ENV || 'production',
+    version: process.env.DD_VERSION || '1.0.0',
+    hostname: process.env.DD_AGENT_HOST,
+    port: process.env.DD_TRACE_AGENT_PORT ? Number(process.env.DD_TRACE_AGENT_PORT) : undefined,
+    profiling: true,
+    runtimeMetrics: true
+});
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,6 +18,8 @@ import spendinsightRoutes from "./routes/spendinsightRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import transcationRoutes from "./routes/transactionRoutes.js";
 import connectDB  from "./db.js";
+
+
 
 dotenv.config();
 
@@ -60,7 +74,7 @@ app.post('/path', (req, res) => {
     res.send('Data received');
   });
 
-const port = parseInt(process.env.PORT) || 8080;
+const port = parseInt(process.env.PORT) || 8081;
 app.listen(port, () => {
     console.log(`financialdiary app: listening on port ${port}`);
 });

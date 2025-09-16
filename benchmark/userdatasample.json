@@ -1,0 +1,1102 @@
+[
+    {
+      "name": "Irawati Afifah",
+      "bankAccountNumber": "6320646010",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.8,
+          -6.125
+        ]
+      }
+    },
+    {
+      "name": "Anastasia Mayasari",
+      "bankAccountNumber": "6320422320",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.82,
+          -6.1
+        ]
+      }
+    },
+    {
+      "name": "Capa Mansur M.Ak",
+      "bankAccountNumber": "6320348992",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.77,
+          -6.14
+        ]
+      }
+    },
+    {
+      "name": "Harimurti Dirgantara",
+      "bankAccountNumber": "6320336491",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.79,
+          -6.155
+        ]
+      }
+    },
+    {
+      "name": "Elma Ananda",
+      "bankAccountNumber": "6320849796",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.85,
+          -6.12
+        ]
+      }
+    },
+    {
+      "name": "Zelda Utami M.M.",
+      "bankAccountNumber": "6320102235",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.83,
+          -6.165
+        ]
+      }
+    },
+    {
+      "name": "Gaiman Ardana S.E.I",
+      "bankAccountNumber": "6320568852",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.755,
+          -6.135
+        ]
+      }
+    },
+    {
+      "name": "Ajeng Yuliarti",
+      "bankAccountNumber": "6320763151",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.78,
+          -6.11
+        ]
+      }
+    },
+    {
+      "name": "Anggabaya Maheswara",
+      "bankAccountNumber": "6320949029",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.145
+        ]
+      }
+    },
+    {
+      "name": "Harimurti Sinaga",
+      "bankAccountNumber": "6320714382",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.76,
+          -6.16
+        ]
+      }
+    },
+    {
+      "name": "Estiawan Salahudin",
+      "bankAccountNumber": "6320754539",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.75,
+          -6.175
+        ]
+      }
+    },
+    {
+      "name": "Widya Ningrum",
+      "bankAccountNumber": "6320410533",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.72,
+          -6.15
+        ]
+      }
+    },
+    {
+      "name": "Balangga Damanik",
+      "bankAccountNumber": "6320790883",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.7,
+          -6.165
+        ]
+      }
+    },
+    {
+      "name": "Kenzie Syahreza",
+      "bankAccountNumber": "6320316703",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.73,
+          -6.185
+        ]
+      }
+    },
+    {
+      "name": "Lantar Manullang",
+      "bankAccountNumber": "6320752676",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.68,
+          -6.13
+        ]
+      }
+    },
+    {
+      "name": "Mahesa Waluyo",
+      "bankAccountNumber": "6320297231",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.71,
+          -6.195
+        ]
+      }
+    },
+    {
+      "name": "Adiarja Agustian",
+      "bankAccountNumber": "6320749231",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.66,
+          -6.14
+        ]
+      }
+    },
+    {
+      "name": "Oni Zahrah",
+      "bankAccountNumber": "6320634566",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.69,
+          -6.17
+        ]
+      }
+    },
+    {
+      "name": "Harsanto Pradana",
+      "bankAccountNumber": "6320986476",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.735,
+          -6.155
+        ]
+      }
+    },
+    {
+      "name": "Karma Maulana",
+      "bankAccountNumber": "6320960886",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.74,
+          -6.2
+        ]
+      }
+    },
+    {
+      "name": "Danu Adhitama",
+      "bankAccountNumber": "6320646669",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.825,
+          -6.175
+        ]
+      }
+    },
+    {
+      "name": "Unggul Sitorus",
+      "bankAccountNumber": "6320258826",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.835,
+          -6.18
+        ]
+      }
+    },
+    {
+      "name": "Purwadi Permadi",
+      "bankAccountNumber": "6320402880",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.845,
+          -6.165
+        ]
+      }
+    },
+    {
+      "name": "Kezia Elvina",
+      "bankAccountNumber": "6320366262",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.855,
+          -6.17
+        ]
+      }
+    },
+    {
+      "name": "Among Yulianto",
+      "bankAccountNumber": "6320519857",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.82,
+          -6.19
+        ]
+      }
+    },
+    {
+      "name": "Cindy Padmasari S.Kom",
+      "bankAccountNumber": "6320200674",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.815,
+          -6.16
+        ]
+      }
+    },
+    {
+      "name": "Martaka Budiyanto",
+      "bankAccountNumber": "6320925068",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.84,
+          -6.185
+        ]
+      }
+    },
+    {
+      "name": "Lalita Saraswati",
+      "bankAccountNumber": "6320197103",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.195
+        ]
+      }
+    },
+    {
+      "name": "Ana Namaga",
+      "bankAccountNumber": "6320472827",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.8,
+          -6.17
+        ]
+      }
+    },
+    {
+      "name": "Elvin Sihombing",
+      "bankAccountNumber": "6320269384",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.835,
+          -6.155
+        ]
+      }
+    },
+    {
+      "name": "Mila Usada",
+      "bankAccountNumber": "6320386729",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.88,
+          -6.23
+        ]
+      }
+    },
+    {
+      "name": "Ganep Sitompul",
+      "bankAccountNumber": "6320878196",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.85,
+          -6.25
+        ]
+      }
+    },
+    {
+      "name": "Lutfan Mangunsong",
+      "bankAccountNumber": "6320610478",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.89,
+          -6.21
+        ]
+      }
+    },
+    {
+      "name": "Irwan Situmorang S.H.",
+      "bankAccountNumber": "6320731295",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.87,
+          -6.27
+        ]
+      }
+    },
+    {
+      "name": "Yusuf Wacana M.Ak",
+      "bankAccountNumber": "6320564947",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.9,
+          -6.24
+        ]
+      }
+    },
+    {
+      "name": "Bagas Mahardika",
+      "bankAccountNumber": "6320768839",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.86,
+          -6.2
+        ]
+      }
+    },
+    {
+      "name": "Panji Ramadan",
+      "bankAccountNumber": "6320971361",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.84,
+          -6.26
+        ]
+      }
+    },
+    {
+      "name": "Asmuni Hakim S.Pt",
+      "bankAccountNumber": "6320715675",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.87,
+          -6.22
+        ]
+      }
+    },
+    {
+      "name": "Diah Melinda",
+      "bankAccountNumber": "6320171147",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.86,
+          -6.28
+        ]
+      }
+    },
+    {
+      "name": "Gading Damanik",
+      "bankAccountNumber": "6320222859",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.895,
+          -6.235
+        ]
+      }
+    },
+    {
+      "name": "Nasim Setiawan",
+      "bankAccountNumber": "6320599554",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.245
+        ]
+      }
+    },
+    {
+      "name": "Kamaria Hartati",
+      "bankAccountNumber": "6320593507",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.82,
+          -6.26
+        ]
+      }
+    },
+    {
+      "name": "Lestari Mulyani",
+      "bankAccountNumber": "6320384212",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.8,
+          -6.275
+        ]
+      }
+    },
+    {
+      "name": "Bahuwirya Maheswara",
+      "bankAccountNumber": "6320590476",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.83,
+          -6.29
+        ]
+      }
+    },
+    {
+      "name": "Nabila Lestari",
+      "bankAccountNumber": "6320822731",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.84,
+          -6.235
+        ]
+      }
+    },
+    {
+      "name": "Sakura Afifah",
+      "bankAccountNumber": "6320213253",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.78,
+          -6.25
+        ]
+      }
+    },
+    {
+      "name": "Carub Ahmad",
+      "bankAccountNumber": "6320919835",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.82,
+          -6.215
+        ]
+      }
+    },
+    {
+      "name": "Vivi Yuniar",
+      "bankAccountNumber": "6320477858",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.85,
+          -6.28
+        ]
+      }
+    },
+    {
+      "name": "Cengkir Kuswoyo",
+      "bankAccountNumber": "6320164718",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.3
+        ]
+      }
+    },
+    {
+      "name": "Vera Oktaviani",
+      "bankAccountNumber": "6320754607",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.79,
+          -6.265
+        ]
+      }
+    },
+    {
+      "name": "Dacin Rayhan",
+      "bankAccountNumber": "6320134589",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.83,
+          -6.205
+        ]
+      }
+    },
+    {
+      "name": "Purwanto Wacana",
+      "bankAccountNumber": "6320672717",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.86,
+          -6.255
+        ]
+      }
+    },
+    {
+      "name": "Hesti Uyainah",
+      "bankAccountNumber": "6320268280",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.77,
+          -6.225
+        ]
+      }
+    },
+    {
+      "name": "Indra Rajata",
+      "bankAccountNumber": "6320174763",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.88,
+          -6.285
+        ]
+      }
+    },
+    {
+      "name": "Kunthara Prabowo",
+      "bankAccountNumber": "6320661225",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.785,
+          -6.15
+        ]
+      }
+    },
+    {
+      "name": "Hendra Winarno",
+      "bankAccountNumber": "6320375256",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.79,
+          -6.19
+        ]
+      }
+    },
+    {
+      "name": "Kalim Utama M.Pd",
+      "bankAccountNumber": "6320894020",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.83,
+          -6.24
+        ]
+      }
+    },
+    {
+      "name": "Jayadi Rajasa",
+      "bankAccountNumber": "6320162923",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.265
+        ]
+      }
+    },
+    {
+      "name": "Aisyah Nurlaela",
+      "bankAccountNumber": "6320344871",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.805,
+          -6.16
+        ]
+      }
+    },
+    {
+      "name": "Kemal Tarihoran",
+      "bankAccountNumber": "6320440414",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.84,
+          -6.21
+        ]
+      }
+    },
+    {
+      "name": "Teddy Rajasa",
+      "bankAccountNumber": "6320532094",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.835,
+          -6.275
+        ]
+      }
+    },
+    {
+      "name": "Maman Santoso",
+      "bankAccountNumber": "6320798199",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.85,
+          -6.23
+        ]
+      }
+    },
+    {
+      "name": "Enteng Wahyudin",
+      "bankAccountNumber": "6320302041",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.815,
+          -6.18
+        ]
+      }
+    },
+    {
+      "name": "Raisa Uyainah",
+      "bankAccountNumber": "6320988116",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.8,
+          -6.25
+        ]
+      }
+    },
+    {
+      "name": "Ghaliyati Palastri M.TI.",
+      "bankAccountNumber": "6320137667",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.86,
+          -6.29
+        ]
+      }
+    },
+    {
+      "name": "Padmi Rahimah",
+      "bankAccountNumber": "6320546864",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.8,
+          -6.235
+        ]
+      }
+    },
+    {
+      "name": "Chandra Simbolon",
+      "bankAccountNumber": "6320100997",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.845,
+          -6.195
+        ]
+      }
+    },
+    {
+      "name": "Ikin Gunarto",
+      "bankAccountNumber": "6320216175",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.82,
+          -6.13
+        ]
+      }
+    },
+    {
+      "name": "Samsul Hardiansyah",
+      "bankAccountNumber": "6320438495",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.89,
+          -6.26
+        ]
+      }
+    },
+    {
+      "name": "Tirta Nugroho",
+      "bankAccountNumber": "6320358042",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.785,
+          -6.215
+        ]
+      }
+    },
+    {
+      "name": "Arsipatra Mansur",
+      "bankAccountNumber": "6320869342",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.815,
+          -6.28
+        ]
+      }
+    },
+    {
+      "name": "Laila Nasyiah S.Pd",
+      "bankAccountNumber": "6320623376",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.765,
+          -6.145
+        ]
+      }
+    },
+    {
+      "name": "Talia Rahmawati",
+      "bankAccountNumber": "6320306475",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.85,
+          -6.165
+        ]
+      }
+    },
+    {
+      "name": "Mitra Prayoga S.H.",
+      "bankAccountNumber": "6320155301",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.87,
+          -6.245
+        ]
+      }
+    },
+    {
+      "name": "Cindy Maheswari",
+      "bankAccountNumber": "6320144410",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.84,
+          -6.295
+        ]
+      }
+    },
+    {
+      "name": "Kasiran Prasetyo",
+      "bankAccountNumber": "6320776558",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.805,
+          -6.185
+        ]
+      }
+    },
+    {
+      "name": "Lega Anggriawan",
+      "bankAccountNumber": "6320835960",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.86,
+          -6.22
+        ]
+      }
+    },
+    {
+      "name": "Vera Aryanti M.Pd",
+      "bankAccountNumber": "6320913683",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.825,
+          -6.27
+        ]
+      }
+    },
+    {
+      "name": "Febrina Ningrum",
+      "bankAccountNumber": "6320361691",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.775,
+          -6.155
+        ]
+      }
+    },
+    {
+      "name": "Jelita Afifah",
+      "bankAccountNumber": "6320211354",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.855,
+          -6.2
+        ]
+      }
+    },
+    {
+      "name": "Jelita Afifah",
+      "bankAccountNumber": "6320869861",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.815,
+          -6.25
+        ]
+      }
+    },
+    {
+      "name": "Dodo Gunarto S.I.Kom",
+      "bankAccountNumber": "6320466102",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.795,
+          -6.17
+        ]
+      }
+    },
+    {
+      "name": "Rita Puspita",
+      "bankAccountNumber": "6320225239",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.835,
+          -6.235
+        ]
+      }
+    },
+    {
+      "name": "Irma Fathina",
+      "bankAccountNumber": "6320716023",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.855,
+          -6.285
+        ]
+      }
+    },
+    {
+      "name": "Ibrani Purnawarman",
+      "bankAccountNumber": "6320517309",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.815,
+          -6.14
+        ]
+      }
+    },
+    {
+      "name": "Dewi Puspasari",
+      "bankAccountNumber": "6320739276",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.835,
+          -6.19
+        ]
+      }
+    },
+    {
+      "name": "Reza Rajata",
+      "bankAccountNumber": "6320202135",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.795,
+          -6.24
+        ]
+      }
+    },
+    {
+      "name": "Estiawan Prabowo",
+      "bankAccountNumber": "6320423594",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.87,
+          -6.265
+        ]
+      }
+    },
+    {
+      "name": "Mujur Himawan",
+      "bankAccountNumber": "6320457080",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.775,
+          -6.21
+        ]
+      }
+    },
+    {
+      "name": "Cahyono Adriansyah",
+      "bankAccountNumber": "6320391138",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.845,
+          -6.15
+        ]
+      }
+    },
+    {
+      "name": "Aditya Arifin",
+      "bankAccountNumber": "6320365287",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.83,
+          -6.175
+        ]
+      }
+    },
+    {
+      "name": "Gamanto Abiputra",
+      "bankAccountNumber": "6320509977",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.81,
+          -6.225
+        ]
+      }
+    },
+    {
+      "name": "Waluyo Febian",
+      "bankAccountNumber": "6320485791",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.87,
+          -6.29
+        ]
+      }
+    },
+    {
+      "name": "Karman Sinaga S.Psi",
+      "bankAccountNumber": "6320716993",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.79,
+          -6.135
+        ]
+      }
+    },
+    {
+      "name": "Nyana Irfandi",
+      "bankAccountNumber": "6320427326",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.825,
+          -6.16
+        ]
+      }
+    },
+    {
+      "name": "Ditya Rachmawati",
+      "bankAccountNumber": "6320521733",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.865,
+          -6.205
+        ]
+      }
+    },
+    {
+      "name": "Jasmin Laksita",
+      "bankAccountNumber": "6320123082",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.825,
+          -6.255
+        ]
+      }
+    },
+    {
+      "name": "Carla Uyainah",
+      "bankAccountNumber": "6320290850",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.785,
+          -6.18
+        ]
+      }
+    },
+    {
+      "name": "Wardaya Prakasa M.TI.",
+      "bankAccountNumber": "6320885825",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.805,
+          -6.23
+        ]
+      }
+    },
+    {
+      "name": "Melinda Nurdiyanti",
+      "bankAccountNumber": "6320177179",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          106.845,
+          -6.275
+        ]
+      }
+    }
+  ]

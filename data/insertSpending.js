@@ -5,7 +5,7 @@ import { MongoClient } from "mongodb";
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' });
 
-const connection = process.env.ATLASSEARCHURI + "?retryWrites=true&w=majority";
+const connection = process.env.ATLASSEARCHURI + "?retryWrites=true&w=majority&directConnection=true";
 const dbName = process.env.DBNAME
 ;
 const client = new MongoClient(connection);
@@ -14,10 +14,10 @@ console.log("Connected to MongoDB!");
 
 const database = client.db(dbName);
 const collection = database.collection('spendinginsight');
-// await collection.createIndex(
-//     { bankAccountNumber: 1, month: 1, "spendingInsights.category": 1 },
-//     { unique: true }
-// );
+await collection.createIndex(
+    { bankAccountNumber: 1, month: 1, "spendingInsights.category": 1 },
+    { unique: true }
+);
 // Generate 1000 random transactions
 const transactions = await getRandomTransaction(1000);
 
@@ -27,7 +27,7 @@ try {
     startTime = Date.now();
     for (const transaction of transactions) {
         await addTransaction(transaction, client, dbName).catch(console.error);
-        //await addTransactionAndUpdatePercentages(transaction, client, dbName).catch(console.error);
+        await addTransactionAndUpdatePercentages(transaction, client, dbName).catch(console.error);
     
     }
 }

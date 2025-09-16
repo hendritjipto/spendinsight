@@ -1,21 +1,27 @@
 {
-  "name": "pocketdiary",
+  "name": "pocketdiary-dev",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Please create .env file on the parent folder :  ```javascript ATLASSEARCHURI=\"mongodb+srv://username:password@xxx.d1fgtx1.mongodb.net/\" DBNAME=\"Bank\" CURRENCY=\"IDR\" ```",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-work:hendritjipto/spendinsight.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
+    "@elastic/elasticsearch": "^9.1.1",
     "@faker-js/faker": "^7.4.0",
+    "chartjs-node-canvas": "*",
+    "dd-trace": "^5.64.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.13.1",
-    "pg":"^8.16.0",
-    "chartjs-node-canvas": "*",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "pg": "^8.16.0"
   }
 }

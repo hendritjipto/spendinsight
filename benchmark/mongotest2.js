@@ -5,12 +5,46 @@ import { ChartJSNodeCanvas } from 'chartjs-node-canvas';
 
 dotenv.config();
 
-const TEST_DURATION_MS = 60_000; // 1 minute
-const CONCURRENCY = 10; // Number of parallel requests per batch
-const QUERY = 'bankAccountNumber=6320971361&month=2025-03-01';
+let parsedData;
+async function fetchData() {
+fs.readFile('userdatasample.json', 'utf8', (err, filedata) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+  try {
+    parsedData = JSON.parse(filedata);
+    
+    console.log("Name:", parsedData[0].name);
+    console.log("Bank Account Number:", parsedData[0].bankAccountNumber);
+    //console.log("Coordinates:", parsedData.location.coordinates);
+  } catch (err) {
+    console.error('Error parsing JSON:', err);
+  }
+});
+}
 
-const BASE_URL_1 = 'http://localhost:8080/api/insight';
-const BASE_URL_2 = 'http://localhost:8080/api/transaction/pg';
+
+const TEST_DURATION_MS = 1000; // 1 minute
+const CONCURRENCY = 10; // Number of parallel requests per batch
+//const QUERY = 'bankAccountNumber=6320971361&month=2025-03-01';
+
+const BASE_URL_1 = 'http://localhost:8081/api/transaction';
+//const BASE_URL_2 = 'http://localhost:8080/api/transaction/pg';
+
+async function getRandomBankAccountNumber(data) {
+
+  // Check if there is any data
+  if (!data || data.length === 0) {
+    return null;
+  }
+  
+  // Select a random index from the array length
+  const randomIndex = Math.floor(Math.random() * data.length);
+  
+  // Return the bank account number of the randomly selected object
+  return data[randomIndex].bankAccountNumber;
+}
 
 async function sendRequest(url) {
     try {
@@ -26,8 +60,12 @@ async function runBenchmark(url) {
     let successfulRequests = 0;
 
     while (Date.now() < endTime) {
+        let account = getRandomBankAccountNumber(parsedData);
+        let QUERY = 'bankAccountNumber='+account +'&month=2025-03-01';
+        console.log(QUERY);
         const batch = Array.from({ length: CONCURRENCY }, () => sendRequest(`${url}?${QUERY}`));
         const results = await Promise.allSettled(batch);
+        //console.log(results);
         successfulRequests += results.filter(r => r.status === 'fulfilled' && r.value).length;
     }
 
@@ -38,11 +76,11 @@ async function benchmark() {
     console.log('Benchmarking API 1...');
     const api1QPS = await runBenchmark(BASE_URL_1);
     console.log('Benchmarking API 2...');
-    const api2QPS = await runBenchmark(BASE_URL_2);
+    //const api2QPS = await runBenchmark(BASE_URL_2);
 
     const qpsResults = {
         api1: api1QPS / (TEST_DURATION_MS / 1000),
-        api2: api2QPS / (TEST_DURATION_MS / 1000)
+        //api2: api2QPS / (TEST_DURATION_MS / 1000)
     };
 
     console.log('Benchmark complete:', qpsResults);
@@ -101,4 +139,7 @@ async function generateBarChart(qpsResults) {
     console.log('QPS chart saved as qps-benchmark.png');
 }
 
-await benchmark();
+await fetchData();
+let result = await getRandomBankAccountNumber(parsedData);
+console.log("rslt" + result);
+//await benchmark();
