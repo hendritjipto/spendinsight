@@ -35,10 +35,11 @@ export const getTransaction = async (req, res) => {
             };
             
             const transactions = await db.collection("transaction").find(pipeline).toArray();
-          
-            // let explain = await db.collection("transaction").find(pipeline).explain("allPlansExecution")
-            //  console.log(JSON.stringify(explain, null, 2));
-            
+            if(process.env.EXPLAIN === "true") {
+                 await db.collection("transaction").find(pipeline).explain("allPlansExecution");
+                //console.log(JSON.stringify(explain, null, 2));
+            }
+
             const output = groupTrans(transactions);
 
             if (output) {
