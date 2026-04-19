@@ -1,14 +1,18 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
+            "name": "Debug with Instrumentation",
             "type": "node",
             "request": "launch",
-            "name": "Launch Current File",
-            "skipFiles": ["<node_internals>/**"],
-            "program": "${file}",
-            "runtimeExecutable": "/opt/homebrew/bin/node",  // Specify the full path to your Node.js binary
-            "console": "integratedTerminal"
+            "program": "${workspaceFolder}/index.js",
+            "args": [],
+            "env": {
+                "NODE_OPTIONS": "--import ./instrumentation.js"
+            },
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
         }
     ]
 }
