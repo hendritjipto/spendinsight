@@ -21,10 +21,6 @@ export const getInsight = async (req, res) => {
                 1, 0, 0, 0
             ));
             const transactions = await db.collection("spendinginsight").find({ "bankAccountNumber": bankAccountNumber, "month": firstDayOfMonth }).toArray();
-            
-            // let explain = await db.collection("spendinginsight").find({ "bankAccountNumber": bankAccountNumber, "month": firstDayOfMonth }).explain("allPlansExecution")
-            // console.log(JSON.stringify(explain, null, 2));
-         
             if (transactions[0]) {
                 res.json(transactions);
             } else {
@@ -40,11 +36,15 @@ export const getInsight = async (req, res) => {
             }
         }
         else {
-            const transactions = await db.collection("spendinginsight").findOne();
-            res.json(transactions);
+            const transaction = await db.collection("spendinginsight").findOne();
+            if (transaction) {
+                res.json(transaction);
+            } else {
+                res.status(404).json({ message: "no insight data found" });
+            }
         }
     } catch (error) {
         console.error("Error fetching spending insight:", error);
-        res.status(500).json({ message: error });
+        res.status(500).json({ message: error.message });
     }
 };
